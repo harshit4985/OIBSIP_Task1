@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Calculator.css">
+    <title>Calculator</title>
+    <!-- css -->
+    <style>
+        *{
+    margin: 0%;
+    padding: 0%;
+    }
+    /* calculator body */
+    .cal{
+        position: absolute;
+        height: 495px;
+        width: 460px;
+        top: 100px;
+        left: 37%;
+        background-color: rgb(211, 160, 160);
+    }
+    /* input bar */
+    .cal input[type='text']{
+        height: 70px;
+        margin: 2%;
+        width: 95%;
+        font-size: 30px;
+    }
+    /* button */
+    .button input[type='button']{
+        font-size: 28px;
+        margin-left: 2%;
+        margin-right: 0%;
+        margin-top: 0%;
+        margin-bottom: 2%;
+        height: 70px;
+        width: 100px;
+        background-color: rgb(151, 152, 154);
+    }
+    /* hover button */
+    .button input[type='button']:hover{
+        background-color: black;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="cal">
+        <input type="text"  id="res">
+        <div class="button">
+            <input type="button" value="c" onclick="clr()"  style="background-color: rgb(187, 71, 39);">
+            <input type="button" value="%" onclick="math('%')" style="background-color: rgb(187, 71, 39);">
+            <input type="button" value="←" onclick="del('←')" style="background-color: rgb(187, 71, 39);">
+            <input type="button" value="÷" onclick="math('/')" style="background-color: rgb(187, 71, 39);">
+            <br>
+            <input type="button" value="7" onclick="math('7')" >
+            <input type="button" value="8" onclick="math('8')" >
+            <input type="button" value="9" onclick="math('9')" >
+            <input type="button" value="x" onclick="math('*')" style="background-color: rgb(187, 71, 39);">
+            <br>
+            <input type="button" value="4" onclick="math('4')" >
+            <input type="button" value="5" onclick="math('5')" >
+            <input type="button" value="6" onclick="math('6')" >
+            <input type="button" value="-" onclick="math('-')" style="background-color: rgb(187, 71, 39);">
+            <br>
+            <input type="button" value="1" onclick="math('1')" >
+            <input type="button" value="2" onclick="math('2')" >
+            <input type="button" value="3" onclick="math('3')" >
+            <input type="button" value="+" onclick="math('+')" style="background-color: rgb(187, 71, 39);">
+            <br>
+            <input type="button" value="00" onclick="math('00')" >
+            <input type="button" value="0"  onclick="math('0')" >
+            <input type="button" value="."  onclick="math('.')" >
+            <input type="button" value="="  onclick="result()" style="background-color: rgb(57, 81, 222);">
+
+        </div>
+    </div>
+    <!-- javascript -->
+    <script>
+        // adds the element pressed and solves them
+    function math(val) {
+        var v = document.getElementById('res');
+        v.value += val;
+    }
+    // display final result
+    function result() {
+        var num1 = document.getElementById('res').value;
+        var num2 = eval(num1);
+        document.getElementById('res').value = num2;
+    }
+    // refresh
+    function clr() {
+        var inp = document.getElementById('res');
+        inp.value = '';
+    }
+    //delete
+    function del() {
+        var ev = document.getElementById('res');
+        ev.value = ev.value.slice(0,-1);
+    }
+    </script>
+</body>
+</html>
